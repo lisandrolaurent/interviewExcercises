@@ -2,8 +2,6 @@
 // to do level order traversal
 // of Binary Tree
  
-/* importing the inbuilt java classes
-   required for the program */
 import java.util.Queue;
 import java.util.LinkedList;
  
@@ -34,19 +32,16 @@ class BinaryTree {
         while (!queue.isEmpty())
         {
  
-            /* poll() removes the present head.
-            For more information on poll() visit
-            http://www.tutorialspoint.com/java/
-            util/linkedlist_poll.htm */
+            /* poll() removes the present head */
             Node tempNode = queue.poll();
             System.out.print(tempNode.data + " ");
  
-            /*Enqueue left child */
+            /* Enqueue left child */
             if (tempNode.left != null) {
                 queue.add(tempNode.left);
             }
  
-            /*Enqueue right child */
+            /* Enqueue right child */
             if (tempNode.right != null) {
                 queue.add(tempNode.right);
             }
@@ -55,17 +50,33 @@ class BinaryTree {
  
     public static void main(String args[])
     {
-        /* creating a binary tree and entering
-         the nodes */
+        /* creating a binary tree and entering the nodes */
         BinaryTree tree_level = new BinaryTree();
         tree_level.root = new Node(1);
         tree_level.root.left = new Node(2);
         tree_level.root.right = new Node(3);
         tree_level.root.left.left = new Node(4);
         tree_level.root.left.right = new Node(5);
- 
-        System.out.println("Level order traversal
-                            of binary tree is - ");
+
+        /*
+
+            1
+           / \
+          2   3
+         / \
+        4   5
+       
+       */     
+
+        System.out.println("Level order traversal of binary tree is - ");
         tree_level.printLevelOrder();
     }
 }
+
+/* 
+
+Time Complexity: O(n) where n is the number of nodes in the binary tree 
+
+Space Complexity: O(n) where n is the number of nodes in the binary tree 
+
+*/
